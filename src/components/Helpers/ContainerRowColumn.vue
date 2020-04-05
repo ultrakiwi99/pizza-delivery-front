@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" style="max-width: 740px; margin: 0 auto">
         <div class="row">
             <div class="col">
                 <slot></slot>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div :key="idx" class="row" v-for="(category, idx) in categories">
+        <div :key="idx" v-for="(category, idx) in categories">
             <h3>{{ category.name }}</h3>
             <Products :products="category.products"/>
         </div>

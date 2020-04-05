@@ -1,20 +1,20 @@
 <template>
     <ContainerRowColumn>
         <CartIcon/>
-        <Categories :categories="categories"/>
-        <ProductCard/>
+        <ContainerRowColumn style="margin: 0 auto">
+            <Categories :categories="categoriesAndProducts"/>
+        </ContainerRowColumn>
     </ContainerRowColumn>
 </template>
 
 <script>
     import ContainerRowColumn from "@/components/Helpers/ContainerRowColumn";
     import Categories from "@/components/Menu/Categories";
-    import ProductCard from "@/components/Menu/ProductCard";
     import CartIcon from "@/components/Menu/CartIcon";
 
     export default {
         name: "Menu",
-        components: {CartIcon, ProductCard, ContainerRowColumn, Categories},
+        components: {CartIcon, ContainerRowColumn, Categories},
         mounted() {
             this.$api
                 .getCategoriesAndProducts()
