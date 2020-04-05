@@ -1,12 +1,10 @@
 <template>
-    <div>
-
-    </div>
+    <section class="card"></section>
 </template>
 
 <script>
     export default {
-        name: "Cart"
+        name: "ProductCard"
     }
 </script>
 

@@ -1,12 +1,12 @@
 <template>
-    <div>
-
+    <div class="row">
+        <section class="card"></section>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Cart"
+        name: "Products"
     }
 </script>
 
