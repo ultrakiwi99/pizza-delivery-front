@@ -22,6 +22,7 @@ export default new Vuex.Store({
       for (let idx in state.cart) {
         if (state.cart[idx].name === item.name) {
           state.cart.splice(idx, 1);
+          return;
         }
       }
     }
