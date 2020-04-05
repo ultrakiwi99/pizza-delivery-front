@@ -25,8 +25,12 @@
                 <legend>Anything else to add?</legend>
                 <textarea placeholder="comments" style="width: 100%"></textarea>
             </fieldset>
-            <router-link class="button secondary" to="/cart">To cart</router-link>
-            <button class="primary" type="submit">Make order</button>
+            <router-link class="button secondary" to="/cart">
+                <span class="icon-cart inverse"></span> To cart
+            </router-link>
+            <button class="primary" type="submit">
+                <span class="icon-credit inverse"></span> Make order
+            </button>
         </form>
     </div>
 </template>

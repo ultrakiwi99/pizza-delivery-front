@@ -8,7 +8,9 @@
                         {{ product.name }}
                     </div>
                     <div class="section">
-                        <button @click="toCart(product)" class="primary">Add</button>
+                        <button @click="toCart(product)" class="primary">
+                            <span class="icon-cart inverse"></span> Add
+                        </button>
                     </div>
                 </div>
             </section>
