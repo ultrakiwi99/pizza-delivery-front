@@ -3,7 +3,10 @@
         <div class="row">
             <section :key="product.name" class="col-sm-12 col-md-6 col-lg-4" v-for="product in products">
                 <div class="card fluid">
-                    <img :alt="product.name" class="section media" src="assets/pizza.jpeg" width="100%">
+                    <img :alt="`image of ${product.name}`"
+                         class="section media"
+                         src="assets/pizza.jpeg"
+                         style="width: 100%">
                     <div class="section">
                         {{ product.name }}
                     </div>
