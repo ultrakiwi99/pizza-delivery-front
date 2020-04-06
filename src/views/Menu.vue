@@ -1,8 +1,13 @@
 <template>
     <ContainerRowColumn>
         <CartIcon/>
-        <ContainerRowColumn style="margin: 0 auto">
-            <Categories :categories="categoriesAndProducts"/>
+        <ContainerRowColumn class="component-container">
+            <Categories :categories="categoriesAndProducts" v-if="categoriesAndProducts"/>
+            <div class="centered-content">
+                <h3 ref="loading">
+                    <span class="spinner"></span>
+                </h3>
+            </div>
         </ContainerRowColumn>
     </ContainerRowColumn>
 </template>
@@ -18,7 +23,15 @@
         mounted() {
             this.$api
                 .getCategoriesAndProducts()
-                .then(result => this.categoriesAndProducts = result);
+                .then(result => {
+                    if (result instanceof Error) {
+                        throw result;
+                    }
+                    this.categoriesAndProducts = result
+                })
+                .catch(() => {
+                    this.$refs['loading'].textContent = "Server is down. Cannot load menu."
+                });
         },
         data: () => ({
             categoriesAndProducts: null

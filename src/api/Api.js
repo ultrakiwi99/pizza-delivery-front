@@ -11,6 +11,6 @@ export default class Api {
         return axios
             .get(`${this.url}/api/products`)
             .then(result => result.data)
-            .catch(error => console.log(error));
+            .catch(error => error);
     }
 }
