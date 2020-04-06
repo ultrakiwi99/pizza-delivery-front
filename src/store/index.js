@@ -18,6 +18,9 @@ export default new Vuex.Store({
     cartAdd(state, product) {
       state.cart.push(product)
     },
+    clear(state) {
+      state.cart = [];
+    },
     remove(state, item) {
       for (let idx in state.cart) {
         if (state.cart[idx].name === item.name) {

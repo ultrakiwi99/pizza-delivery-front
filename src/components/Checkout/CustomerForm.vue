@@ -3,8 +3,14 @@
         <fieldset>
             <legend>How you want to get your order?</legend>
             <div class="button-group">
-                <button type="button">Pickup</button>
-                <button type="button">Delivery</button>
+                <button :class="{primary: deliveryMode === 'pickup'}"
+                        @click="setPickup"
+                        type="button">Pickup
+                </button>
+                <button :class="{primary: deliveryMode === 'delivery'}"
+                        @click="setDelivery"
+                        type="button">Delivery
+                </button>
             </div>
             <div style="color: lightslategrey">
                 <small>Delivery will add 8&dollar;(10&euro;) to your total order price.</small>
@@ -33,9 +39,25 @@
 <script>
     export default {
         name: "CustomerForm",
+        data: () => ({
+            deliveryMode: 'pickup'
+        }),
         methods: {
             makeOrder() {
+                this.$store.commit('clear');
                 this.$router.push({name: 'Result'})
+            },
+            setPickup() {
+                this.deliveryMode = 'pickup';
+                this.$store.commit('remove', {name: 'Delivery to client'});
+            },
+            setDelivery() {
+                this.deliveryMode = 'delivery';
+                this.$store.commit('cartAdd', {
+                    name: 'Delivery to client',
+                    priceUsd: 8,
+                    priceEur: 10
+                });
             }
         }
     }
