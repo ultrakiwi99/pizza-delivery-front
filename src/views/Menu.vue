@@ -2,9 +2,8 @@
     <ContainerRowColumn>
         <CartIcon/>
         <ContainerRowColumn class="component-container">
-            <Categories :categories="categoriesAndProducts"/>
             <Categories :categories="categoriesAndProducts" v-if="categoriesAndProducts"/>
-            <div class="centered-content">
+            <div class="centered-content" v-else>
                 <h3 ref="loading">
                     <span class="spinner"></span>
                 </h3>
