@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent>
+    <form @submit.prevent="makeOrder">
         <fieldset>
             <legend>How you want to get your order?</legend>
             <div class="button-group">
@@ -32,7 +32,12 @@
 
 <script>
     export default {
-        name: "CustomerForm"
+        name: "CustomerForm",
+        methods: {
+            makeOrder() {
+                this.$router.push({name: 'Result'})
+            }
+        }
     }
 </script>
 
