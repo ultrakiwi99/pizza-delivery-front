@@ -3,11 +3,22 @@
         <ul style="margin-left: 1rem; list-style: none">
             <li :key="idx" style="margin-bottom: 1rem" v-for="(item, idx) in cart">
                 <div class="row cart-item-row">
-                    <div class="col-sm-6" style="text-align: left">
+                    <div class="col-sm-4" style="text-align: left">
                         <strong>{{ item.name }}</strong>
                     </div>
-                    <div @click="remove(item)" class="col-sm-6" style="cursor: pointer; text-align: right">
-                        {{ item.priceUsd }}&dollar; ({{ item.priceEur }}&euro;)
+                    <div class="col-sm-4" style="text-align: center">
+                        <div v-if="shouldRemove">
+                            <strong @click="$store.commit('cartDelOne', item)" class="btn-qty">-</strong>
+                            &nbsp;{{ item.qty }}&nbsp;
+                            <strong @click="$store.commit('cartAddOne', item)" class="btn-qty">+</strong>
+                        </div>
+                        <div v-else>
+                            {{ item.qty }} x {{ item.priceUsd }}&dollar; ({{ item.priceEur }}&euro;)
+
+                        </div>
+                    </div>
+                    <div @click="remove(item)" class="col-sm-4" style="cursor: pointer; text-align: right">
+                        {{ item.totalUsd }}&dollar; ({{ item.totalEur }}&euro;)
                         <span style="color: darkred" v-if="shouldRemove">&times;</span>
                     </div>
                 </div>
@@ -47,5 +58,14 @@
 </script>
 
 <style scoped>
+    .btn-qty {
+        padding: 10px;
+        cursor: pointer;
+        margin: 0 auto;
+        border-radius: 0.5rem;
+    }
 
+    .btn-qty:hover {
+        background: lightgray;
+    }
 </style>
