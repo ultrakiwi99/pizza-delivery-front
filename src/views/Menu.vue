@@ -1,12 +1,9 @@
 <template>
     <ContainerRowColumn>
-        <CartIcon/>
         <ContainerRowColumn class="component-container">
             <Categories :categories="categoriesAndProducts" v-if="categoriesAndProducts"/>
             <div class="centered-content" v-else>
-                <h3 ref="loading">
-                    <span class="spinner"></span>
-                </h3>
+                <span class="spinner"></span>
             </div>
         </ContainerRowColumn>
     </ContainerRowColumn>
@@ -15,11 +12,10 @@
 <script>
     import ContainerRowColumn from "@/components/Helpers/ContainerRowColumn";
     import Categories from "@/components/Menu/Categories";
-    import CartIcon from "@/components/Menu/CartIcon";
 
     export default {
         name: "Menu",
-        components: {CartIcon, ContainerRowColumn, Categories},
+        components: {ContainerRowColumn, Categories},
         mounted() {
             this.$api
                 .getCategoriesAndProducts()
@@ -40,5 +36,8 @@
 </script>
 
 <style scoped>
-
+    h3 {
+        width: 100%;
+        height: 100vh;
+    }
 </style>
