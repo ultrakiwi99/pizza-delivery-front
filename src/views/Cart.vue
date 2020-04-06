@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import CartView from "@/views/CartView";
+    import CartView from "@/components/Cart/CartView";
 
     export default {
         name: "Cart",
