@@ -2,7 +2,7 @@
     <ContainerRowColumn>
         <ContainerRowColumn class="component-container">
             <Categories :categories="categoriesAndProducts" v-if="categoriesAndProducts"/>
-            <div class="centered-content" v-else>
+            <div class="centered-content" ref="loading" v-else>
                 <span class="spinner"></span>
             </div>
         </ContainerRowColumn>
