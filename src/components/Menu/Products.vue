@@ -5,7 +5,7 @@
                 <div class="card fluid">
                     <img :alt="`image of ${product.name}`"
                          class="section media"
-                         src="assets/pizza.jpeg"
+                         :src="`/assets/${product.image}`"
                          style="width: 100%">
                     <div class="section">
                         {{ product.name }}
