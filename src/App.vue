@@ -17,7 +17,7 @@
     max-width: 780px;
     margin: 0 auto;
   }
-
+  
   #app .centered-content {
     height: 80vh;
     width: 100vh;
